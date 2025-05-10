@@ -120,6 +120,7 @@ return [
             'username' => env('FIREBIRD_USERNAME'),
             'password' => env('FIREBIRD_PASSWORD'),
             'charset'  => env('FIREBIRD_CHARSET'),
+            'collation' => 'WIN1251',
             'role'     => null,
         ],
     ],

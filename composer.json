@@ -7,9 +7,10 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "harrygulliford/laravel-firebird": "^3.3",
         "laravel/framework": "^11.0",
-        "laravel/tinker": "^2.10.1",
-        "harrygulliford/laravel-firebird": "^3.3"
+        "laravel/sanctum": "^4.0",
+        "laravel/tinker": "^2.10.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
