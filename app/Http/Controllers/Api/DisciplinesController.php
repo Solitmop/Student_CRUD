@@ -11,33 +11,33 @@ class DisciplinesController extends Controller
     public function index()
     {   
         $data = Disciplines::all();
-        return $data;
+        return response()->json($data);
     }
 
     public function store(DisciplinesRequest $request)
     {
         $validated = $request->validated();
-        $discipline = Disciplines::create($validated);
-        return response()->json($discipline, 201);
+        $discipline = new Disciplines($validated);
+        $discipline->save();
+        $created = Disciplines::orderByDesc('ID')->first();
+        return response()->json($created, 201);
     }
 
     public function show(Disciplines $discipline)
     {
-        return $discipline = Disciplines::findOrFail($discipline); //response()->json($discipline);
-    }
-
-    public function update(DisciplinesRequest $request, $id) 
-    {
-        $validated = $request->validated();
-        $discipline = Disciplines::findOrFail($id);
-        $discipline->fill($discipline->except(['ID']));
-        $discipline->save();
         return response()->json($discipline);
     }
 
-    public function destroy(Disciplines $discipline, $id) 
+    public function update(DisciplinesRequest $request, Disciplines $discipline) 
     {
-        $discipline = Disciplines::findOrFail($id);
-        if($discipline->delete()) return response(null, 204);
+        $validated = $request->validated();
+        $discipline->update($validated);
+        return response()->json($discipline);
+    }
+
+    public function destroy(Disciplines $discipline) 
+    {
+        $discipline->delete();
+        return response()->json(null, 204);
     }
 }

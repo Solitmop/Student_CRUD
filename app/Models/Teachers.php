@@ -4,15 +4,16 @@ namespace App\Models;
 
 use App\Models\FirebirdModel;
 
-class ControlTypes extends FirebirdModel
+class Teachers extends FirebirdModel
 {
     protected $connection = 'firebird';
-    protected $table = 'CONTROL_TYPES';
+    protected $table = 'TEACHERS';
     protected $primarykey = 'ID';
     public $incrementing = false;
     public $timestamps = false;
     protected $fillable = [
         'ID',
-        'CONTROL_NAME'
+        'FIO',
+        'EMAIL'
     ];
 }

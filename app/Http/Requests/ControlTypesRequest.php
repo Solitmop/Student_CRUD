@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class DisciplinesRequest extends FormRequest
+class ControlTypesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -14,11 +14,16 @@ class DisciplinesRequest extends FormRequest
         return true;
     }
 
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
     public function rules(): array
     {
         return [
             'ID' => 'integer',
-            'DISC_NAME' => 'required|string'
+            'CONTROL_NAME' => 'required|string'
         ];
     }
 }
