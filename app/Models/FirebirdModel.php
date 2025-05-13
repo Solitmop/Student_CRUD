@@ -21,9 +21,7 @@ class FirebirdModel extends Model
         });
         return $array;
     }
-
-    
-
+  
     public function save(array $options = [])
     {
         // Преобразуем входящие данные в WIN1251 перед сохранением
